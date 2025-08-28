@@ -37,7 +37,7 @@ export default function App() {
 
   ///---PGN states---///
   const [currentPgn, setCurrentPgn] = useState('');
-  const [pgnValid, setPgnValid] = useState(true);
+  const [pgnValid, setPgnValid] = useState(undefined);
   const [playerNames, setPlayerNames] = useState('');
 
   const {
@@ -136,6 +136,7 @@ export default function App() {
               readPgn={readPgn}
               currentPgn={currentPgn}
               pgnValid={pgnValid}
+              setPgnValid={setPgnValid}
             />
             <BottomBar
               currentPgn={currentPgn}

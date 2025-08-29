@@ -32,7 +32,7 @@ const BottomBar = ({
   useKeyboardNavigation(next, prev, last, first);
 
   return (
-    <div className="gap-x-32 w-[100%] border-2 border-red-500 p-8">
+    <div className="gap-x-32 border-2 border-red-500 p-2">
       {currentPgn ? (
         <span className="border w-full h-full grid grid-cols-4">
           <span onClick={() => first()}>

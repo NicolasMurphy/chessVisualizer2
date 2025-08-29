@@ -117,38 +117,54 @@ export default function App() {
   };
 
   return (
-    <div className="w-full h-full border-2 border-red-200 m-0 p-0">
-      <Header playerNames={playerNames}></Header>
-      <main className="grid grid-cols-[20%_80%] border">
-        <aside>
-          <LeftSideBar readPgn={readPgn} />
-        </aside>
-        <div className=" justify-center">
-          <Chessboard
-            id="BasicBoard"
-            boardWidth={560}
-            getPositionObject={getPos}
-            position={chessBoardPosition}
-          />
-          <div className="grid gap-x-32">
-            <ImportGame
-              pgnInput={pgnInput}
-              readPgn={readPgn}
-              currentPgn={currentPgn}
-              pgnValid={pgnValid}
-              setPgnValid={setPgnValid}
-            />
-            <BottomBar
-              currentPgn={currentPgn}
-              setChessBoardPosition={setChessBoardPosition}
-              getNextBoard={getNextBoard}
-              getPreviousBoard={getPreviousBoard}
-              getFirstBoard={getFirstBoard}
-              getLastBoard={getLastBoard}
-            />
+    <>
+      <div className="border-2 border-red-200 m-0 p-0">
+        <Header playerNames={playerNames}></Header>
+        <main className="min-h-screen p-4">
+          <div className="flex flex-col lg:flex-row lg:flex-wrap gap-4">
+            {/* List Games */}
+            <div className="order-4 lg:order-1 lg:w-84 lg:flex-shrink-0 border-2 border-gray-200 p-4">
+              <LeftSideBar readPgn={readPgn} />
+            </div>
+
+            {/* ChessBoard */}
+            <div className="order-1 lg:order-2 border-2 border-red-200 mx-auto mt-6">
+              <Chessboard
+                boardWidth={Math.min(560, window.innerWidth - 60)}
+                id="BasicBoard"
+                getPositionObject={getPos}
+                position={chessBoardPosition}
+              />
+            </div>
+
+            {/* Pieces */}
+            <div className="order-3 lg:order-3 lg:w-84 lg:flex-shrink-0 border-2 border-red-200 p-4"></div>
+
+            {/* Controls */}
+            <div className="order-2 lg:order-4 lg:w-full border-2 border-red-200 p-4">
+              <BottomBar
+                currentPgn={currentPgn}
+                setChessBoardPosition={setChessBoardPosition}
+                getNextBoard={getNextBoard}
+                getPreviousBoard={getPreviousBoard}
+                getFirstBoard={getFirstBoard}
+                getLastBoard={getLastBoard}
+              />
+            </div>
+
+            {/* Import */}
+            <div className="order-5 lg:order-5 lg:w-full border-2 border-red-200 p-4">
+              <ImportGame
+                pgnInput={pgnInput}
+                readPgn={readPgn}
+                currentPgn={currentPgn}
+                pgnValid={pgnValid}
+                setPgnValid={setPgnValid}
+              />
+            </div>
           </div>
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </>
   );
 }

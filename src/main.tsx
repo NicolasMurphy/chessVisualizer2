@@ -5,7 +5,7 @@ import App from './App.jsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <div className="bg-gradient-to-t from-black to-gray-700 w-screen h-screen m-0 overscroll-contain -ml-24">
+    <div className="bg-gradient-to-t from-black to-gray-700">
       <App />
     </div>
   </StrictMode>
